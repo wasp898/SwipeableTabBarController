@@ -15,10 +15,14 @@ import UIKit
 open class SwipeableTabBarController: UITabBarController {
 
     /// Animated transition to be performed while swiping
-    private(set) public var swipeAnimatedTransitioning: SwipeTransitioningProtocol? = SwipeTransitionAnimator()
+    public var swipeAnimatedTransitioning: SwipeTransitioningProtocol? = SwipeTransitionAnimator()
     
     /// Animated transition to be performed when tapping on a tabbar item
-    private(set) public var tapAnimatedTransitioning: SwipeTransitioningProtocol? = SwipeTransitionAnimator()
+    public var tapAnimatedTransitioning: SwipeTransitioningProtocol? = SwipeTransitionAnimator() {
+        didSet {
+            currentAnimatedTransitioningType = tapAnimatedTransitioning
+        }
+    }
     
     /// Animated transition being used currently
     private var currentAnimatedTransitioningType: SwipeTransitioningProtocol?
@@ -71,9 +75,9 @@ open class SwipeableTabBarController: UITabBarController {
     }
 
     private func setup() {
+        currentAnimatedTransitioningType = tapAnimatedTransitioning
         // UITabBarControllerDelegate for transitions.
         delegate = self
-        currentAnimatedTransitioningType = tapAnimatedTransitioning
         // Gesture setup
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerDidPan(_:)))
         view.addGestureRecognizer(panGestureRecognizer)
