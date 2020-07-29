@@ -134,12 +134,13 @@ open class SwipeableTabBarController: UITabBarController {
             // Don't reset the gesture recognizer if we skipped starting the
             // transition because we don't have a translation yet (and thus, could
             // not determine the transition direction).
-            if !translation.equalTo(CGPoint.zero) {
-                // There is not a view controller to transition to, force the
-                // gesture recognizer to fail.
-                sender.isEnabled = false
-                sender.isEnabled = true
-            }
+//            if !translation.equalTo(CGPoint.zero) {
+//                print("Let transition fail")
+//                // There is not a view controller to transition to, force the
+//                // gesture recognizer to fail.
+//                sender.isEnabled = false
+//                sender.isEnabled = true
+//            }
         }
         
         transitionCoordinator?.animate(alongsideTransition: nil) { [unowned self] context in
