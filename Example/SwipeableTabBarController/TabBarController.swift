@@ -27,7 +27,7 @@ class TabBarController: SwipeableTabBarController {
 //        isCyclingEnabled = true
 
         /// Disable custom transition for tap.
-        tapAnimatedTransitioning?.animationDuration = 0
+        tapAnimatedTransitioning = nil
         
         /// Set swipe to only work when strictly horizontal.
 //        diagonalSwipeEnabled = true
