@@ -91,6 +91,7 @@ open class SwipeableTabBarController: UITabBarController {
         delegate = self
         // Gesture setup
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerDidPan(_:)))
+        panGestureRecognizer.name = UIGestureRecognizer.SwipeablePanGestureRecognizer
         view.addGestureRecognizer(panGestureRecognizer)
     }
 

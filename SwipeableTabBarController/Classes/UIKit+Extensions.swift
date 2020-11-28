@@ -15,3 +15,7 @@ public extension UIViewController {
         }
     }
 }
+
+public extension UIGestureRecognizer {
+    static let SwipeablePanGestureRecognizer = "SwipeablePanGesture"
+}
